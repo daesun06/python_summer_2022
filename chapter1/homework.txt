@@ -1,0 +1,5 @@
+1. Complete chapter 1 of python for kids on udemy
+2. Solve all required programming challenges 
+3. Save programming challenges into chapter1 folder
+4. Create new github repository (call it deson_python_summer_2022)
+5. Push all changes in python_summer_2022 local repository into remote repository (master or main branch)
