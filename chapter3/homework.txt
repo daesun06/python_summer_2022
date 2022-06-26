@@ -1,0 +1,6 @@
+By wednesday, first checkpoint - write any questions or anything that was unclear and ask.
+
+By end of the week, solve all challenges in chapter 3, 
+write definitions of all methods/functions that were in the chapter, 
+be ready to solve 1 additional problem.
+
