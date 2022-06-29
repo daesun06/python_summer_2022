@@ -10,3 +10,4 @@ for x in range(360):
     t.left(360 / sides + 1)
     t.width(x * sides / 100)
     t.left(90)
+turtle.mainloop()
