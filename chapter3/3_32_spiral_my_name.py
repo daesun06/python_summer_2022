@@ -1,8 +1,9 @@
 # Not a programming challenge.
 
-                # Set up turtle graphics.
+# Set up turtle graphics.
 
 import turtle
+
 t = turtle.Pen()
 t.speed(0)
 turtle.bgcolor("black")
@@ -17,7 +18,7 @@ for x in range(100):
     t.penup()
     t.forward(x * 4)
     t.pendown()
-    t.write(your_name, font=("Arial", int((x + 4)/4), "bold"))
+    t.write(your_name, font=("Arial", int((x + 4) / 4), "bold"))
     t.left(92)
 
 

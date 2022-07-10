@@ -1,9 +1,12 @@
 import turtle
+
 t = turtle.Pen()
 t.speed(0)
 turtle.bgcolor("black")
 colors = ["orange", "light blue", "gray", "pink", "purple", "white", "green", "yellow"]
-sides = int( turtle.numinput("Number of sides", "How many sides do you want (1-8) ?", 4, 1, 8))
+sides = int(
+    turtle.numinput("Number of sides", "How many sides do you want (1-8) ?", 4, 1, 8)
+)
 
 for x in range(360):
     t.pencolor(colors[x % colors])
