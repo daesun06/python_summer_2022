@@ -8,4 +8,5 @@ d) variable_is_mine
 
 3. List all types of variables mentioned in chapter 3.
 
-4. Write a program that takes a string input representing a side of a square and returns the integer value representing the square area of the squade. For example, if the input is "2", the output should be 4.
+4. Write a program that takes a string input representing a side of a square and returns the integer value representing the square area of the square. For example, if the input is "2", the output should be 4.
+
