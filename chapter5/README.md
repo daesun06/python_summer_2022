@@ -24,14 +24,45 @@ Chapter 5:
         expressiona1 (conditional_operator) expression2 
         answer == 'y'
 
+    Comparison operators:
 
-
-    Python operator             Meaning                  Example           Result
-  
-          <                   Less than                   1 < 2             True   
-          >                  Greater than                 1 > 2             False
-         <=              Less than or equal to            1 <= 2            True
-         >=             Greater than ot equal to          1 >= 2            False
-         ==                  Is eqaul to                  1 == 2            False
-         !=                  Not equal to                 1 != 2            True
+    |    Python operator   |          Meaning             |      Example     |      Result       |
+    |                      |                              |                  |                   |
+    |          <           |         Less than            |      1 < 2       |       True        |      
+    |          >           |        Greater than          |      1 > 2       |       False       |  
+    |         <=           |    Less than or equal to     |      1 <= 2      |       True        |   
+    |         >=           |   Greater than ot equal to   |      1 >= 2      |       False       |  
+    |         ==           |        Is eqaul to           |      1 == 2      |       False       | 
+    |         !=           |        Not equal to          |      1 != 2      |       True        |        
     
+    Even or odd:
+
+        if (m % 2 == 0): (Tests if 'm' is even.)
+        else: (Otherwise, 'm' must be odd.)
+
+
+    Complex operators:
+
+    |    Logical operator      |                 Usage                   |                               Result                                       |      
+    |                          |                                         |                                                                            |
+    |          and             |      if(condition1 and condition2):     |       True only if BOTH 'condition1' and 'condition2' are 'True'           |      
+    |          or              |      if(condition1 or condition2):      |       True if either of 'condition1' or 'condition2' are 'True'            |      
+    |          not             |           if not (condition):           |                  True only if the 'condition' is 'False'                   |
+
+    Secret messages:
+        - The Caesar cipher is a 2,000-year-old secret code that shifts letters in 13 letters in the alphabet to send private messages.( A ---> N, B ---> O)
+        Example: SECRET MESSAGES ARE COOL ---> FRPERG ZRFFNTRF NER PBBY
+
+    How to make strings with upper or lower cases?
+        >>> 'Hello'.upper()
+        HELLO
+        >>> 'Hello'.lower()
+        hello
+    
+    Numeric values of charaters in Python
+        - The Python function to turn a character into ASCII number is 'ord()'
+        >>> ord('A')
+        65
+        >>> chr(65)
+        'A'
+        
