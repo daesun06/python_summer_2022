@@ -1,5 +1,27 @@
 # Olympic logo drawer 
 import turtle
+from time import sleep
+
+
+def draw_generic_circle(t: turtle.Pen, x: int, y: int, radius: int):
+    t.penup()
+    t.setx(x)
+    t.sety(y)
+    t.pendown()
+    t.circle(radius)
+    t.penup()
+
+# "up", 'down', 'left', 'right'
+def draw_mini_circle(t: turtle.Pen, x: int, y: int, direction: str):
+    if direction == 'up':
+        draw_generic_circle(t, x, y + 100 - 20, 20)
+    elif direction == 'down':
+        draw_generic_circle(t, x, y - 20, 20)
+    elif direction == 'left':
+        draw_generic_circle(t, x - 50, y + 50 - 20, 20)
+    else:
+        draw_generic_circle(t, x + 50, y + 50 - 20, 20)
+            
 
 def draw_olympic():
     # Base task: Write a content for function draw_olympic, that will make a drawing of olympic circles 
@@ -12,29 +34,20 @@ def draw_olympic():
 
     coordinates = [[0, 0], [-110, 0], [110, 0], [-55, -95], [55, -95]]
 
-    # minicoordinates = [[-110, -50,], [-135, -25], [-160, 0], [-135, 25], [-110, 50], [-85, 25], [-60, 0], [-85, -25],
-    
-    # [0, -50], [-25, -25], [-50, 0], [-25, 25], [0, 50], [25, 25], [50, 0], [25, -25],
-    
-    # [110, -50], [85, -25], [60, 0], [85, 25], [110, 50], [135, 25], [160, 0], [135, -25],
-    
-    # [-55, -145], [-80, -120], [-105, -95], [-80, -70], [-55, -45], [-30, -70], [-5, -95], [-30, -70],
-
-    # [55, -145], [30, -120], [5, -95], [30, -70], [55, -45], [80, -70], [105, -95], [80, -70]]
+    directions = ['up', 'down', 'left', 'right']
 
     for coordinate in coordinates:
         t.setx(coordinate[0])
         t.sety(coordinate[1])
-        t.color(turtle.textinput("Olympic color", "Enter a color you want"))
+        t.color('red')
         t.pendown()
         t.circle(50)
-        # for minicoordinate in minicoordinates:
-        #     t.setx(minicoordinate[0])
-        #     t.sety(minicoordinate[1])
-        #     t.pendown()
-        #     t.circle(10)
-        #     t.penup()
         t.penup()
+        t.width(6)
+       
+        for direction in directions:
+            draw_mini_circle(t, coordinate[0], coordinate[1], direction)
+            sleep(4)
 
     turtle.mainloop()
 
