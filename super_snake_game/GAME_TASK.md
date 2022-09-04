@@ -21,3 +21,17 @@ def create_level(width: int):
 ## Part 2
 
 Create a simple moving square object that can be controlled with arrows (up, down, left, right). Clickin on an arrow should change the direction of the square, square should be moving with a certain speed (for example every 1 second square should move in the specified direction by its width)
+
+# Part 3
+
+## 3.1 Refactoring
+
+Move level generation, snake generation, and food generation into dedicated functions. 
+
+## 3.2 Collision detection
+
+Snake needs to die when it hits the walls outside of the level visible boundary. Snake should auto respawn after N seconds.
+
+## 3.3 Food respawn
+
+When snake overlaps with the food square, square dissapears and appears at a new random position after N seconds (N can be arbitrary)

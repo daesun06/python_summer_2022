@@ -1,5 +1,7 @@
 # Snake Game
 
+from ast import Pass
+from email.errors import FirstHeaderLineIsContinuationDefect
 import turtle
 import random
 import time
@@ -21,17 +23,17 @@ def level_gen():
 # snake head
 
 head = turtle.Turtle()
-def snake_draw(shape:str, color:str):
+def spawn_snake(shape:str, color:str, x:int, y:int):
     head.speed(0)
     head.shape(shape)
     head.color(color)
     head.penup()
-    head.goto(0,0)
+    head.goto(x,y)
     head.direction = "stop"
 
 # food that the snake, now spawns in random locations
 
-def food_spawn(shape:str, color:str, x:int, y:int):
+def spawn_food(shape:str, color:str, x:int, y:int):
     n = random.randrange(-turtle.window_width()//2,
                          turtle.window_width()//2)
     m = random.randrange(-turtle.window_height()//2,
@@ -42,6 +44,7 @@ def food_spawn(shape:str, color:str, x:int, y:int):
     food.color(color)
     food.penup()
     food.goto(n, m)
+    return food
 
 # making the snake controlable
 
@@ -85,11 +88,20 @@ turtle.onkeypress(go_right, "Right")
 # game setup
 
 level_gen()
-snake_draw("square", "red")
-food_spawn("circle", "orange", 80, 200)
+snake_head = spawn_snake("square", "red", 0, 0)
+food = spawn_food("circle", "orange", 80, 200)
 
-# game loop
+# collision detection 
 
+def collision_detection(): 
+    # TODO implement collision detection
+    pass
+
+def food_collision():
+    # TODO implement food collision detection
+    pass
+
+# game loops
 while True: 
     screen.update() # this makes the screen always update
     move() # using my move function to make the snake animated
