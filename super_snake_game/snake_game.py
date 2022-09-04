@@ -29,15 +29,19 @@ def snake_draw(shape:str, color:str):
     head.goto(0,0)
     head.direction = "stop"
 
-# food that the snake eats W.I.P does nothing just spawns
+# food that the snake, now spawns in random locations
 
 def food_spawn(shape:str, color:str, x:int, y:int):
+    n = random.randrange(-turtle.window_width()//2,
+                         turtle.window_width()//2)
+    m = random.randrange(-turtle.window_height()//2,
+                         turtle.window_height()//2)
     food = turtle.Turtle()
     food.speed(0)
     food.shape(shape)
     food.color(color)
     food.penup()
-    food.goto(x, y)
+    food.goto(n, m)
 
 # making the snake controlable
 
