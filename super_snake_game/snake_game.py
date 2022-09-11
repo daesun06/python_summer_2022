@@ -31,7 +31,11 @@ def spawn_snake(shape:str, color:str, x:int, y:int):
     head.goto(x,y)
     head.direction = "stop"
 
-# food that the snake, now spawns in random locations
+# snake body
+
+body = []
+
+# food that the snake eats
 
 def spawn_food(shape:str, color:str, x:int, y:int):
     n = random.randrange(-turtle.window_width()//2,
@@ -91,20 +95,25 @@ level_gen()
 snake_head = spawn_snake("square", "red", 0, 0)
 food = spawn_food("circle", "orange", 80, 200)
 
-# collision detection 
-
-def collision_detection(): 
-    # TODO implement collision detection
-    pass
-
-def food_collision():
-    # TODO implement food collision detection
-    pass
-
 # game loops
 while True: 
     screen.update() # this makes the screen always update
+    
+    if head.distance(food) < 20:
+        # now make the food move to a random part of the screen, after collision
+        v = random.randint(-290, 290)
+        l = random.randint(-290, 290)
+        food.goto(v, l)
+        
+        # add a body part to the snake
+        body_part = turtle.Turtle()
+        body_part.speed(0)
+        body_part.color('green')
+        body_part.shape('square')
+        body_part.penup()
+
     move() # using my move function to make the snake animated
+    
     time.sleep(delay)
 
 turtle.mainloop()
