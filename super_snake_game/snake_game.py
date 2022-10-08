@@ -12,7 +12,7 @@ delay = 0.1
 
 backgrounds = ['white', 'gray', 'pink', 'black']
 
-screen = turtle.Screen()
+screen = turtle.Screen() # and if i move the "screen = turtle.Screen()" my "screen.update()" wont work also.
 
 def level_gen():
     screen.title("Snake Game")
@@ -22,7 +22,7 @@ def level_gen():
 
 # snake head
 
-head = turtle.Turtle()
+head = turtle.Turtle() # if i move the "head = turtle.Turtle()" into the function my collision detection and movement wont work :(
 def spawn_snake(shape:str, color:str, x:int, y:int):
     head.speed(0)
     head.shape(shape)
@@ -95,15 +95,33 @@ level_gen()
 snake_head = spawn_snake("square", "red", 0, 0)
 food = spawn_food("circle", "orange", 80, 200)
 
+# making the score text at the top of the screen
+
+score = ["0"]
+
+if head.distance(food):
+    turtle.penup()
+    turtle.pencolor("magenta")
+    turtle.setpos(x = -200, y = 270)
+    turtle.pendown()
+    
+    turtle.write("Score = ", score)
+    turtle.penup()
+    turtle.hideturtle()
+
 # game loops
+
 while True: 
     screen.update() # this makes the screen always update
+
+    # food collsion
     
     if head.distance(food) < 20:
         # now make the food move to a random part of the screen, after collision
-        v = random.randint(-290, 290)
-        l = random.randint(-290, 290)
+        v = random.randint(-270, 270)
+        l = random.randint(-270, 270)
         food.goto(v, l)
+        score.append("1")
         
         # add a body part to the snake
         body_part = turtle.Turtle()
@@ -111,7 +129,36 @@ while True:
         body_part.color('green')
         body_part.shape('square')
         body_part.penup()
+        body.append(body_part)
 
+    # move the end of the segments to the head
+
+    for index in range(len(body) -1, 0, -1): # looked this up and found that doing moving the body parts in reverse is easier than the other way around.
+        m = body[index - 1].xcor()
+        n = body[index - 1].ycor()
+        body[index].goto(m, n)
+
+    # now we need to move the segment before the head to where the head was. otherwise it will make an error.
+
+    if len(body) > 0:
+        q = head.xcor()
+        e = head.ycor()
+        body[0].goto(q, e)
+
+    # BORDER COLLISION (finnaly did it)
+
+    if head.xcor() > 290 or head.xcor() <  -290 or head.ycor() > 290 or head.ycor() <  -290:
+        # ^ - I'm sure you can do it with a different way, but this is one of the easiest
+        time.sleep(1.5) # <- stops the game for 1.5 seconds
+        head.goto(0, 0)
+        head.direction = 'stop'
+        # hiding the body parts that you had before death
+        for body_part in body: 
+            body_part.goto(6666, 6666) # couldn't find a way to delete the body parts, so they tp away
+        body.clear()
+
+    # making that when the snake touches the border it will reset and spawn at x:0 y:0 (a.k.a collision)
+        
     move() # using my move function to make the snake animated
     
     time.sleep(delay)
